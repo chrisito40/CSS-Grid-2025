@@ -1,0 +1,80 @@
+/*
+
+Grid Template Areas
+
+Nos permite definir áreas a partir del nombre de las mismas y se utiliza la propiedad grid-template-areas.
+
+Para definir el nombre de las áreas se escribe las filas entre comillas y las columnas separadas por un espacio.
+
+grid-template-areas:
+    "header header header"  > Fila 1
+    "main main sidebar"; > Fila 2
+
+Con esto asignamos los nombres a cada área de la grilla .
+
+Para colocar los elementos en el área que la corresponde usamos la propiedad  ´grid-area´ y como valor el nombre del área asignada.
+
+grid-area: header;
+
+Ojo: Las área se escriben sin comillas.
+
+Para agregar espacio entre las filas y columnas usamos la propiedad gap.
+
+gap: 24 px;
+
+Si queremos usar espacio distinto para filas y columnas  usamos: column-gap y row-gap.
+
+columna-gap 16px;
+columna-row 24px;
+*/
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 2 fr 1fr;
+  grid-template-areas: 
+      "header header header"
+      "main main sidebar"
+      "footer footer footer";
+  gap: 24px;
+  column-gap: 12px;
+  row-gap: 12px;
+  padding: 12px;
+  height: 100vh;
+  background-color:darkgreen;
+}
+
+.item {
+  border-radius: 24px;
+  text-align: center;
+  color: dark;
+  background-color: lightblue;
+}
+
+.header {
+  grid-area: header;
+  background-color: lightseagreen;
+}
+.main{
+  grid-area: main;
+  background-color: lime;
+}
+.sidebar{
+  grid-area: sidebar;
+  background-color: lightslategrey;
+}
+.footer{
+  grid-area: footer;
+  background-color: chocolate;
+}
+
